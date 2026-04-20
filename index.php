@@ -23,8 +23,6 @@
             <button onclick="showPage('fame', this)">🌟 Hall of Fame</button>
             <button class="admin-only hidden" onclick="showPage('add', this)">➕ Register Animal</button>
             <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
-            <button class="btn-login-nav guest-only" onclick="showLogin()">🔐 Login (Admin)</button>
-            <button class="btn-logout admin-only hidden" onclick="logout()">🚪 Logout</button>
         </nav>
     </header>
 
@@ -179,27 +177,6 @@
         <span class="toast-msg" id="toast-msg">Notification</span>
     </div>
 
-    <!-- Login Modal -->
-    <div class="modal-overlay" id="login-modal">
-        <div class="modal">
-            <h3>🔐 Admin Login</h3>
-            <p style="margin-bottom: 20px; color: var(--text-dim); font-size: 0.9rem;">Default Credentials: admin / admin123</p>
-            <form id="login-form" onsubmit="event.preventDefault(); submitLogin();">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" id="l-user" required autocomplete="username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="l-pass" required autocomplete="current-password">
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-cancel" onclick="closeModal('login-modal')">Cancel</button>
-                    <button type="submit" class="btn-save">Login</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- Edit Modal -->
     <div class="modal-overlay" id="edit-modal">
