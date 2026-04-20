@@ -181,28 +181,118 @@ main { padding: 30px 40px 60px; max-width: 1200px; margin: 0 auto; }
 .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; min-height: 300px; }
 
+/* === Mobile Responsive === */
 @media (max-width: 768px) {
-  .charts-grid { grid-template-columns: 1fr; }
-  header { padding: 12px 16px; flex-direction: column; gap: 12px; align-items: stretch; }
-  .logo { text-align: center; }
-  nav { overflow-x: auto; padding-bottom: 4px; justify-content: flex-start; width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  nav::-webkit-scrollbar { display: none; }
-  nav button, .theme-toggle, .btn-logout, .btn-login-nav { white-space: nowrap; font-size: 0.85rem; padding: 8px 14px; }
-  .hero { padding: 40px 16px 30px; }
-  main { padding: 20px 16px 40px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .form-card { padding: 24px 16px; }
+  /* Header & Nav */
+  header {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .logo { text-align: center; font-size: 1.3rem; }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+  nav button, .theme-toggle, .btn-logout, .btn-login-nav {
+    font-size: 0.78rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  nav button.active {
+    box-shadow: 0 2px 12px var(--accent-glow);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 32px 16px 24px;
+  }
+  .hero-title { font-size: 1.6rem; line-height: 1.3; }
+  .hero-sub { font-size: 0.9rem; margin-bottom: 20px; }
+  .hero-badge { font-size: 0.7rem; padding: 5px 14px; margin-bottom: 14px; }
+
+  /* Main Content */
+  main { padding: 16px 12px 40px; }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+  .section-header h2 { font-size: 1.4rem; }
+  .section-header p { font-size: 0.85rem; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .stat-card { padding: 14px 10px; border-radius: 12px; }
+  .stat-card h4 { font-size: 0.78rem; margin-bottom: 6px; }
+  .stat-card .value { font-size: 1.8rem; }
+
+  /* Charts */
+  .charts-grid { grid-template-columns: 1fr; gap: 14px; }
+  .chart-container { padding: 16px; min-height: 220px; border-radius: 12px; }
+
+  /* Forms */
+  .form-section { margin: 0; }
+  .form-grid { grid-template-columns: 1fr; gap: 16px; }
+  .form-card { padding: 20px 14px; border-radius: 12px; }
   .radio-group { flex-direction: column; gap: 8px; }
-  .list-controls { flex-direction: column; align-items: stretch; }
-  .search-wrap { width: 100%; }
-  .animals-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .stat-card { padding: 16px; }
-  .toast { left: 16px; right: 16px; bottom: 16px; justify-content: center; text-align: center; }
+  .submit-btn { padding: 14px; font-size: 0.95rem; border-radius: 10px; }
+
+  /* List Controls */
+  .list-controls { flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 18px; }
+  .search-wrap { width: 100%; min-width: unset; }
+  .search-wrap input { padding: 10px 14px; font-size: 0.9rem; }
+  .filter-select { padding: 10px 14px; font-size: 0.9rem; width: 100%; }
+  .btn-export { width: 100%; text-align: center; padding: 10px; }
+
+  /* Animal Cards */
+  .animals-grid { grid-template-columns: 1fr; gap: 14px; }
+  .animal-card { border-radius: 12px; }
+  .animal-card:hover { transform: none; box-shadow: none; }
+  .animal-image { height: 180px; }
+  .animal-image-placeholder { height: 160px; font-size: 2.5rem; }
+  .card-body { padding: 16px; }
+  .card-header h3 { font-size: 1.1rem; }
+  .card-species { font-size: 0.7rem; padding: 3px 10px; }
+  .card-details { gap: 6px; margin-bottom: 14px; }
+  .card-tag { font-size: 0.75rem; padding: 4px 10px; }
+  .card-actions { gap: 8px; }
+  .card-actions button { padding: 10px 8px; font-size: 0.8rem; min-height: 42px; border-radius: 8px; }
+
+  /* Modal */
+  .modal { padding: 24px 18px; width: 95%; border-radius: 14px; max-height: 85vh; }
+  .modal h3 { font-size: 1.2rem; margin-bottom: 16px; }
+  .modal-actions { gap: 8px; }
+  .btn-cancel, .btn-save { padding: 12px; font-size: 0.9rem; min-height: 44px; }
+
+  /* Toast */
+  .toast { left: 12px; right: 12px; bottom: 12px; padding: 12px 16px; border-radius: 10px; justify-content: center; text-align: center; }
+
+  /* Footer */
+  footer { padding: 20px 16px; font-size: 0.75rem; line-height: 1.5; }
+
+  /* Empty state */
+  .empty-state { padding: 40px 16px; }
+  .empty-state .icon { font-size: 2.4rem; }
 }
 
 @media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 8px; }
+  .hero-title { font-size: 1.35rem; }
+  .hero-sub { font-size: 0.82rem; }
+  nav button, .theme-toggle { font-size: 0.72rem; padding: 7px 10px; }
+  .card-actions { flex-direction: column; gap: 6px; }
+  .card-actions button { width: 100%; }
+  .section-header h2 { font-size: 1.2rem; }
 }
 
 /* === Form === */
